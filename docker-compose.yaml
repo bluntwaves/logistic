@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  fsm:
+    image: "ofsm/ofsm:latest"
+    restart: "unless-stopped"
+    environment:
+      - "FACTORIO_VERSION=1.1.50"
+      - "RCON_PASS=oiw2ieThieQu9ae"
+    volumes:
+      - "/opt/docker/volumes/factorio/fsm-data:/opt/fsm-data"
+      - "/opt/docker/volumes/factorio/saves:/opt/factorio/saves"
+      - "/opt/docker/volumes/factorio/mods:/opt/factorio/mods"
+      - "/opt/docker/volumes/factorio/config:/opt/factorio/config"
+      - "/opt/docker/volumes/factorio/mod_packs:/opt/fsm/mod_packs"
+    ports:
+      - "34197:34197/udp"
